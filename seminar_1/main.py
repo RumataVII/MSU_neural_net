@@ -3,8 +3,8 @@ import numpy as np
 from keras import Input
 from keras.datasets import mnist
 from keras.utils import to_categorical
-from keras.models import sequential
-from keras.layets import Dense, Activation
+from keras.models import Sequential
+from keras.layers import Dense, Activation
 from keras.metrics import CategoricalAccuracy
 from keras.optimizers import Adam
 
@@ -24,7 +24,7 @@ x_test = x_test.astype("float32") / 255.0
 
 # preparing the nodel
 model = Sequential([
-    keras.input(shape=(28*28,)),
+    keras.Input(shape=(28*28,)),
     keras.layers.Dense(64, activation="relu"),
     keras.layers.Dense(64, activation="relu"),
     keras.layers.Dense(10),

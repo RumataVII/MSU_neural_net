@@ -3,3 +3,5 @@ poetry.lock
 .venv/
 
 polygon/
+
+.idea/
