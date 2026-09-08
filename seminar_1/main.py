@@ -25,20 +25,20 @@ x_test = x_test.astype("float32") / 255.0
 # preparing the nodel
 model = Sequential([
     keras.Input(shape=(28*28,)),
-    keras.layers.Dense(64, activation="relu"),
-    keras.layers.Dense(64, activation="relu"),
-    keras.layers.Dense(10),
-    keras.layers.Activation('softmax'),
+    Dense(64, activation="relu"),
+    Dense(64, activation="relu"),
+    Dense(10),
+    Activation('softmax'),
 ])
 
 # preparing the metrics
-train_acc_metric = CategorialAccuracy()
-val_acc_metric = CategorialAccuracy()
+train_acc_metric = CategoricalAccuracy()
+val_acc_metric = CategoricalAccuracy()
 
 # setting up the optimizer, the loss function, and metrics
 model.compile(
     loss="categorical_crossentropy",
-    optimizer=Adam(learning_rate=1e-1),
+    optimizer=Adam(learning_rate=1e-3),
     metrics=[train_acc_metric]
 )
 
@@ -46,7 +46,7 @@ model.summary()
 
 # training the model eventually
 batch_size = 32
-epochs = 3
+epochs = 5
 model.fit(
     x_train,
     y_train,
